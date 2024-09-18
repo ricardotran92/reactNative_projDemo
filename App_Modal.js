@@ -27,7 +27,7 @@ const App = () => {
           {/*All views of Modal*/}
           {/*Animation can be slide, slide, none*/}
           <View style={styles.modal}>
-            <Text style={styles.text}>Tên Hoa: Hoa Quà Tặng</Text>
+            <Text style={styles.text}>Modal is open!</Text>
             <Button
               title="Click To Close Modal"
               onPress={() => {
