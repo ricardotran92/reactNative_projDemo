@@ -4,21 +4,19 @@
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-
-import ChitietHoa from './pages/ChitietHoa';
-import Trangloaihoa from './pages/Trangloaihoa';
-import DsHoa from './pages/DsHoa';
+import FirstPage from './pages/FirstPage';
+import SecondPage from './pages/SecondPage';
+import ThirdPage from './pages/ThirdPage';
 const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Trangloaihoa">
+      <Stack.Navigator initialRouteName="FirstPage">
         <Stack.Screen
-          name="Trangloaihoa"
-          component={Trangloaihoa}
+          name="FirstPage"
+          component={FirstPage}
           options={{
-            title: 'Loại Hoa', //Set Header Title
+            title: 'MeNu', //Set Header Title
             headerStyle: {
               backgroundColor: '#f4511e', //Set Header color
             },
@@ -29,10 +27,10 @@ function App() {
           }}
         />
         <Stack.Screen
-          name="DsHoa"
-          component={DsHoa}
+          name="SecondPage"
+          component={SecondPage}
           options={{
-            title: 'Danh Sách Hoa', //Set Header Title
+            title: 'Second Page', //Set Header Title
             headerStyle: {
               backgroundColor: '#f4511e', //Set Header color
             },
@@ -43,10 +41,10 @@ function App() {
           }} 
         />
         <Stack.Screen
-          name="ChitietHoa"
-          component={ChitietHoa}
+          name="ThirdPage"
+          component={ThirdPage}
           options={{
-            title: 'Chi Tiết Hoa', //Set Header Title
+            title: 'Third Page', //Set Header Title
             headerStyle: {
               backgroundColor: '#f4511e', //Set Header color
             },
