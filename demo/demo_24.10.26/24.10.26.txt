@@ -1,0 +1,3 @@
+npm install buffer
+dùng buffer để giải mã token
+https://aboutreact.com/react-native-login-and-signup/
