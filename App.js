@@ -1,47 +1,32 @@
-// React Native Bottom Navigation
-// https://aboutreact.com/react-native-bottom-navigation/
-import * as React from 'react';
-
-
+//App.js
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { initDatabase } from './src/database/database';
+import { useEffect } from 'react';
+import { SettingsProvider } from './src/context/SettingsContext';
+import MainTab from './src/Nav/MainTab';
 
-import FirstPage from './pages/FirstPage';
-import SecondPage from './pages/SecondPage';
-import ThirdPage from './pages/ThirdPage';
-import Trang_chu from './pages/Trang_chu';
-const Tab = createBottomTabNavigator();
+//<MainTab/> <AppNav/>
+export default function App() {
+  useEffect(() => {
+    initDatabase(); // Initialize database on app start
+  }, []);
 
-
-function App() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName="Trang_chu"
-        >
-        <Tab.Screen
-          name="Trang_chu"
-          component={Trang_chu}
-          options={{
-            tabBarLabel: 'Home',
-            title: 'Home',
-          }}  />
-        <Tab.Screen
-          name="SecondPage"
-          component={SecondPage}
-          options={{
-            tabBarLabel: 'Settings',
-            title: 'Setting'
-          }} />
-          <Tab.Screen
-          name="ThirdPage"
-          component={ThirdPage}
-          options={{
-            tabBarLabel: 'Orthers',
-            title: 'Orthers'
-          }} />
-      </Tab.Navigator>
-    </NavigationContainer>
+      <SettingsProvider>
+        <NavigationContainer>
+          <MainTab/>
+        </NavigationContainer>
+      </SettingsProvider>
   );
 }
-export default App;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
